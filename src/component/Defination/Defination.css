@@ -1,0 +1,45 @@
+.meaning{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width:none;
+    overflow-x: hidden;
+    padding: 10px 20px;
+    margin: 10px;
+    height: 60vh;
+    border: 5px solid gray;
+    border-radius: 10px;
+}
+.subTitle{
+    font-size: 3vw;
+    font-family: "Montserrat",sans-serif;
+}
+.singleMeaning{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 20px ;
+    margin: 10px 0; 
+    background-color:white;
+    color: black;
+    transition: all 1s linear;
+}
+.Lit{
+    background-color:  #282c34;
+    color: aliceblue;
+    transition: all 1s linear;
+}
+.hori{
+    width: 100%;
+    background-color: black;
+}
+@media (max-width:800px) {
+    .subTitle{
+        font-size: 5vw;
+    }
+    .meaning{
+        height: 60vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
