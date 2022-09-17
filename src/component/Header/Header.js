@@ -3,7 +3,7 @@ import React from "react";
 import "./Header.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import categories from "../../data/Category";
-function Header({ category, setCategory, word, setWord, mode }) {
+function Header({ category, setCategory, word, setWord, mode, setMeaning }) {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -15,7 +15,9 @@ function Header({ category, setCategory, word, setWord, mode }) {
   const handleChange = (language) => {
     setCategory(language);
     setWord("");
+    setMeaning([]);
   };
+
   return (
     <div className="header">
       <span className="title">{word ? word : "Word Hunter"}</span>
@@ -25,7 +27,7 @@ function Header({ category, setCategory, word, setWord, mode }) {
             id="inputText"
             label="Enter what you looking for..."
             variant="standard"
-            value={word}
+            // value={word}
             onChange={(e) => setWord(e.target.value)}
           />
           <TextField

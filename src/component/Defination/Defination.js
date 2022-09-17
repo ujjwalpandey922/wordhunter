@@ -4,6 +4,7 @@ function Defination({ word, category, meaning, mode }) {
   console.log(meaning);
   return (
     <div className="meaning">
+      {/* audio */}
       {meaning[0] && word && category === "en" && (
         <audio
           src={meaning[0].phonetics[0] && meaning[0].phonetics[0].audio}
@@ -13,9 +14,12 @@ function Defination({ word, category, meaning, mode }) {
           Your Browser Doesn't support audio element
         </audio>
       )}
+      {/* audio */}
       {word === "" ? (
         <span className="subTitle">Start By Searching Something</span>
-      ) : meaning ? (
+      ) : typeof meaning === "object" &&
+        !Array.isArray(meaning) &&
+        meaning !== null ? (
         <span className="subTitle">{meaning.message}</span>
       ) : (
         meaning.map((ele) =>

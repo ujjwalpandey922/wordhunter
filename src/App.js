@@ -8,7 +8,6 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 function App() {
   const [word, setWord] = useState("");
-
   const [meaning, setMeaning] = useState([]);
   const [category, setCategory] = useState("en");
   const [mode, setmode] = useState(false);
@@ -18,8 +17,8 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
       const data = await res.json();
+
       setMeaning(data);
-      // console.log(meaning, data);
     } catch (error) {
       console.log("No meaning found 404");
     }
@@ -58,14 +57,16 @@ function App() {
           word={word}
           setWord={setWord}
           mode={mode}
+          setMeaning={setMeaning}
         />
-
-        <Defination
-          word={word}
-          category={category}
-          meaning={meaning}
-          mode={mode}
-        />
+        {meaning && (
+          <Defination
+            word={word}
+            category={category}
+            meaning={meaning}
+            mode={mode}
+          />
+        )}
       </Container>
     </div>
   );
